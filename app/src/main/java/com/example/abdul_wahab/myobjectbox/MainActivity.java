@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<Person> personList = personBox.getAll();
 
-        String d = "";
+       
 
         Log.d(TAG, "onCreate: ");
 
