@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import java.util.List;
-
 import io.objectbox.Box;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,16 +15,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Box<Person> personBox = ((MyApp) getApplication()).getBoxStore().boxFor(Person.class);
 
 
-        for (int i = 2; i <= 1000; i++) {
+
+
+
+
+
+/*
+
+        for (int i = 2000; i <= 3000; i++) {
             personBox.put(new Person( "name " + i));
-        }
+            Log.d(TAG, "person : "+ i);
+        }*/
+
+/*
 
         List<Person> personList = personBox.getAll();
+*/
 
-       
+        Person p = personBox.get(500);
+
+        p.name = "changed";
+
+        personBox.put(p);
+
+        Person p2 = personBox.get(500);
+
+
 
         Log.d(TAG, "onCreate: ");
 
